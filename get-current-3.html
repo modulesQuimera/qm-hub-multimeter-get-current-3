@@ -20,7 +20,7 @@
         },
         inputs:1,
         outputs:1,
-        icon: "./icons/Get_Current_3.svg",
+        icon: "Get_Current_3.svg",
         label: function() { return this.name || "Get Current 3" },
         paletteLabel: "Get Current 3",
         oneditprepare: function() {
@@ -29,18 +29,15 @@
             $("#node-input-compare_selectA").on("change", function(e) {
                 var compare = $(this).val();
                 if (compare === "interval") {
-                    // $(".node-input-equal-to").hide();
                     $(".node-input-max-valueA").show();
                     $(".node-input-min-valueA").show();
                 }
 
                 if (compare === "maxValue") {
-                    // $(".node-input-equal-toA").hide();
                     $(".node-input-max-valueA").show();
                     $(".node-input-min-valueA").hide();
                 }
                 if (compare === "minValue") {
-                    // $(".node-input-equal-toA").hide();
                     $(".node-input-max-valueA").hide();
                     $(".node-input-min-valueA").show();
                 }
@@ -49,18 +46,15 @@
             $("#node-input-compare_selectB").on("change", function(e) {
                 var compare = $(this).val();
                 if (compare === "interval") {
-                    // $(".node-input-equal-to").hide();
                     $(".node-input-max-valueB").show();
                     $(".node-input-min-valueB").show();
                 }
 
                 if (compare === "maxValue") {
-                    // $(".node-input-equal-toA").hide();
                     $(".node-input-max-valueB").show();
                     $(".node-input-min-valueB").hide();
                 }
                 if (compare === "minValue") {
-                    // $(".node-input-equal-toA").hide();
                     $(".node-input-max-valueB").hide();
                     $(".node-input-min-valueB").show();
                 }
@@ -69,18 +63,15 @@
             $("#node-input-compare_selectC").on("change", function(e) {
                 var compare = $(this).val();
                 if (compare === "interval") {
-                    // $(".node-input-equal-to").hide();
                     $(".node-input-max-valueC").show();
                     $(".node-input-min-valueC").show();
                 }
 
                 if (compare === "maxValue") {
-                    // $(".node-input-equal-toA").hide();
                     $(".node-input-max-valueC").show();
                     $(".node-input-min-valueC").hide();
                 }
                 if (compare === "minValue") {
-                    // $(".node-input-equal-toA").hide();
                     $(".node-input-max-valueC").hide();
                     $(".node-input-min-valueC").show();
                 }
