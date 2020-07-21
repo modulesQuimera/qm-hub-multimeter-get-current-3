@@ -1,11 +1,12 @@
 <script type="text/javascript">
     RED.nodes.registerType('get-current-3',{
         category: 'multimeter modular',
-        color: '#C0C0C0',
+        color: '#32CD32',
         defaults: {
             name:{ value: "" },
             AC_mode:{ value:"" },
             scale: { value:"" },
+            slot: {value:"", required:true},
             compare_selectA: {value:"interval", required:true},
             maxValueA: {value: null},
             minValueA: {value: null},
@@ -20,8 +21,8 @@
         },
         inputs:1,
         outputs:1,
-        icon: "Get_Current_3.svg",
-        label: function() { return this.name || "Get Current 3" },
+        icon: "Multimeter_Modular.svg",
+        label: function() { return this.name? "Get Current 3 - " + this.name: "Get Current 3" },
         paletteLabel: "Get Current 3",
         oneditprepare: function() {
             var node = this;
@@ -120,7 +121,7 @@
 <script type="text/html" data-template-name="get-current-3">
     <div class="form-row columm">
         <strong class="descript">
-            A comparation is made with the measured triple current value.
+            Measure the 3 currents.
         </strong>
     </div>
     <div style="display: flex;">
@@ -135,6 +136,10 @@
             <label for="node-input-scale" style=""><i class="fa fa-expand"></i> Scale</label>
             <input type="number" step="any" id="node-input-scale" placeholder="scale" style="width:50%;">
         </div>
+    </div>
+    <div class="form-row columm">
+        <label  for="node-input-slot"><i class="fa fa-sliders"></i> Slot</label>
+        <input min="0" type="number" id="node-input-slot" style="width:20%;">
     </div>
 
     <hr class="hr-full">
@@ -235,7 +240,7 @@
 </script>
 
 <script type="text/html" data-help-name="get-current-3">
-    <p>Working on it...</p>
+    <p>Measure the 3 currents.</p>
 </script>
 
 
