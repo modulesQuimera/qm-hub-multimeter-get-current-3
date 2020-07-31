@@ -635,6 +635,7 @@
 
     .hr-div-get-current3{
         display: flex !important;
+        width: 100%;
         justify-content: space-between !important;
         /* margin-top: 35px !important; */
     }
@@ -680,12 +681,12 @@
     width: 40% !important;
     float: left !important;
     }
-
+/* 
     .hr-div-get{
         display: flex !important;
         justify-content: space-between !important;
         margin-top: 250px !important;
-    }
+    } */
 
     .optional{
         height: max-content !important;
@@ -739,6 +740,10 @@
             </div>
         </div>
     </div>
+    <div class="form-row columm-50">
+        <label  for="node-input-slot"><i class="fa fa-sliders"></i> Slot</label>
+        <input min="0" type="number" id="node-input-slot" style="width:50%;">
+    </div>
     <!-- <div class="form-row" style="display:flex; justify-content: space-between;">
         <button  class="btn-uni btn-add"  type="button" id="addCurrent3"> <i class="fa fa-plus" style="margin-right: 5px; font-size: 15px;"></i> </button>
         <button class="btn-uni btn-remove"   type="button" id="remCurrent3"> <i class="fa fa-trash" style="margin-right: 10px; font-size: 15px;"></i> </button>
@@ -760,10 +765,7 @@
             <label for="node-input-scale" style=""><i class="fa fa-expand"></i> Scale</label>
             <input type="number" step="any" id="node-input-scale" placeholder="scale" style="width:70%;">
         </div>
-        <div class="form-row columm-30">
-            <label  for="node-input-slot"><i class="fa fa-sliders"></i> Slot</label>
-            <input min="0" type="number" id="node-input-slot" style="width:50%;">
-        </div>
+      
     </div>
    
 
