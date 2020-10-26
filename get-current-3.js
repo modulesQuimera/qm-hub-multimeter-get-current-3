@@ -46,7 +46,7 @@ module.exports = function(RED) {
                 slot: parseInt(self.slot),
                 method: "get_current_3",
                 AC_mode: self.AC_mode_n[g] === "true" ? true : false,
-                scale: parseFloat(self.scale_n[g]),
+                gain: parseFloat(self.gain_n[g]),
                 compare: _compare_n,
                 get_output: {},
             }
@@ -73,7 +73,7 @@ module.exports = function(RED) {
     function getCurrent3Node(config) {
         RED.nodes.createNode(this, config);
         this.AC_mode = config.AC_mode === "true" ? true : false,
-        this.scale = config.scale
+        this.gain = config.gain
         this.compare_selectA = config.compare_selectA;
         this.maxValueA = config.maxValueA;
         this.minValueA = config.minValueA;
@@ -88,7 +88,7 @@ module.exports = function(RED) {
         this.slot = config.slot;
 
         this.qtdGetCurrent3 = config.qtdGetCurrent3;
-        this.AC_mode_n=[]; this.scale_n=[]; this.compare_selectA_n=[]; this.compare_selectB_n=[]; this.compare_selectC_n=[]; this.maxValueA_n=[]; this.minValueA_n=[]; this.maxValueB_n=[]; this.minValueB_n=[]; this.maxValueC_n=[]; this.minValueC_n=[];
+        this.AC_mode_n=[]; this.gain_n=[]; this.compare_selectA_n=[]; this.compare_selectB_n=[]; this.compare_selectC_n=[]; this.maxValueA_n=[]; this.minValueA_n=[]; this.maxValueB_n=[]; this.minValueB_n=[]; this.maxValueC_n=[]; this.minValueC_n=[];
         this.maxValueA_n.push(config.maxValueA1); this.minValueA_n.push(config.minValueA1); this.maxValueB_n.push(config.maxValueB1); this.minValueB_n.push(config.minValueB1); this.maxValueC_n.push(config.maxValueC1); this.minValueC_n.push(config.minValueC1);
         this.maxValueA_n.push(config.maxValueA2); this.minValueA_n.push(config.minValueA2); this.maxValueB_n.push(config.maxValueB2); this.minValueB_n.push(config.minValueB2); this.maxValueC_n.push(config.maxValueC2); this.minValueC_n.push(config.minValueC2);
         this.maxValueA_n.push(config.maxValueA3); this.minValueA_n.push(config.minValueA3); this.maxValueB_n.push(config.maxValueB3); this.minValueB_n.push(config.minValueB3); this.maxValueC_n.push(config.maxValueC3); this.minValueC_n.push(config.minValueC3);
@@ -114,30 +114,30 @@ module.exports = function(RED) {
         this.maxValueA_n.push(config.maxValueA23); this.minValueA_n.push(config.minValueA23); this.maxValueB_n.push(config.maxValueB23); this.minValueB_n.push(config.minValueB23); this.maxValueC_n.push(config.maxValueC23); this.minValueC_n.push(config.minValueC23);
         this.maxValueA_n.push(config.maxValueA24); this.minValueA_n.push(config.minValueA24); this.maxValueB_n.push(config.maxValueB24); this.minValueB_n.push(config.minValueB24); this.maxValueC_n.push(config.maxValueC24); this.minValueC_n.push(config.minValueC24);
 
-        this.AC_mode_n.push(config.AC_mode1); this.scale_n.push(config.scale1);  
-        this.AC_mode_n.push(config.AC_mode2); this.scale_n.push(config.scale2);  
-        this.AC_mode_n.push(config.AC_mode3); this.scale_n.push(config.scale3);  
-        this.AC_mode_n.push(config.AC_mode4); this.scale_n.push(config.scale4);  
-        this.AC_mode_n.push(config.AC_mode5); this.scale_n.push(config.scale5);  
-        this.AC_mode_n.push(config.AC_mode6); this.scale_n.push(config.scale6);  
-        this.AC_mode_n.push(config.AC_mode7); this.scale_n.push(config.scale7);  
-        this.AC_mode_n.push(config.AC_mode8); this.scale_n.push(config.scale8);  
-        this.AC_mode_n.push(config.AC_mode9); this.scale_n.push(config.scale9);  
-        this.AC_mode_n.push(config.AC_mode10); this.scale_n.push(config.scale10); 
-        this.AC_mode_n.push(config.AC_mode11); this.scale_n.push(config.scale11); 
-        this.AC_mode_n.push(config.AC_mode12); this.scale_n.push(config.scale12); 
-        this.AC_mode_n.push(config.AC_mode13); this.scale_n.push(config.scale13); 
-        this.AC_mode_n.push(config.AC_mode14); this.scale_n.push(config.scale14); 
-        this.AC_mode_n.push(config.AC_mode15); this.scale_n.push(config.scale15); 
-        this.AC_mode_n.push(config.AC_mode16); this.scale_n.push(config.scale16); 
-        this.AC_mode_n.push(config.AC_mode17); this.scale_n.push(config.scale17); 
-        this.AC_mode_n.push(config.AC_mode18); this.scale_n.push(config.scale18); 
-        this.AC_mode_n.push(config.AC_mode19); this.scale_n.push(config.scale19); 
-        this.AC_mode_n.push(config.AC_mode20); this.scale_n.push(config.scale20); 
-        this.AC_mode_n.push(config.AC_mode21); this.scale_n.push(config.scale21); 
-        this.AC_mode_n.push(config.AC_mode22); this.scale_n.push(config.scale22); 
-        this.AC_mode_n.push(config.AC_mode23); this.scale_n.push(config.scale23); 
-        this.AC_mode_n.push(config.AC_mode24); this.scale_n.push(config.scale24); 
+        this.AC_mode_n.push(config.AC_mode1); this.gain_n.push(config.gain1);  
+        this.AC_mode_n.push(config.AC_mode2); this.gain_n.push(config.gain2);  
+        this.AC_mode_n.push(config.AC_mode3); this.gain_n.push(config.gain3);  
+        this.AC_mode_n.push(config.AC_mode4); this.gain_n.push(config.gain4);  
+        this.AC_mode_n.push(config.AC_mode5); this.gain_n.push(config.gain5);  
+        this.AC_mode_n.push(config.AC_mode6); this.gain_n.push(config.gain6);  
+        this.AC_mode_n.push(config.AC_mode7); this.gain_n.push(config.gain7);  
+        this.AC_mode_n.push(config.AC_mode8); this.gain_n.push(config.gain8);  
+        this.AC_mode_n.push(config.AC_mode9); this.gain_n.push(config.gain9);  
+        this.AC_mode_n.push(config.AC_mode10); this.gain_n.push(config.gain10); 
+        this.AC_mode_n.push(config.AC_mode11); this.gain_n.push(config.gain11); 
+        this.AC_mode_n.push(config.AC_mode12); this.gain_n.push(config.gain12); 
+        this.AC_mode_n.push(config.AC_mode13); this.gain_n.push(config.gain13); 
+        this.AC_mode_n.push(config.AC_mode14); this.gain_n.push(config.gain14); 
+        this.AC_mode_n.push(config.AC_mode15); this.gain_n.push(config.gain15); 
+        this.AC_mode_n.push(config.AC_mode16); this.gain_n.push(config.gain16); 
+        this.AC_mode_n.push(config.AC_mode17); this.gain_n.push(config.gain17); 
+        this.AC_mode_n.push(config.AC_mode18); this.gain_n.push(config.gain18); 
+        this.AC_mode_n.push(config.AC_mode19); this.gain_n.push(config.gain19); 
+        this.AC_mode_n.push(config.AC_mode20); this.gain_n.push(config.gain20); 
+        this.AC_mode_n.push(config.AC_mode21); this.gain_n.push(config.gain21); 
+        this.AC_mode_n.push(config.AC_mode22); this.gain_n.push(config.gain22); 
+        this.AC_mode_n.push(config.AC_mode23); this.gain_n.push(config.gain23); 
+        this.AC_mode_n.push(config.AC_mode24); this.gain_n.push(config.gain24); 
   
         this.compare_selectA_n.push(config.compare_selectA1); this.compare_selectB_n.push(config.compare_selectB1);this.compare_selectC_n.push(config.compare_selectC1);
         this.compare_selectA_n.push(config.compare_selectA2); this.compare_selectB_n.push(config.compare_selectB2);this.compare_selectC_n.push(config.compare_selectC2);
@@ -215,7 +215,7 @@ module.exports = function(RED) {
                 slot: parseInt(node.slot),
                 method: "get_current_3",
                 AC_mode: node.AC_mode ,
-                scale: parseFloat(node.scale),
+                gain: parseFloat(node.gain),
                 compare: _compare,
                 get_output: {},
             }
