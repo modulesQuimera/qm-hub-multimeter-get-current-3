@@ -129,14 +129,11 @@
             }
             $("#addCurrent3").click(function(){
                 self.controle = self.controle+1 <= 24 ? self.controle + 1 : 24;
-
                 $(".current"+self.controle).show();
-                console.log(self.controle);
             });
             $("#remCurrent3").click(function(){
                 $(".current"+self.controle).hide();
                 self.controle = self.controle-1 >= 0 ? self.controle - 1 : 0;
-                console.log(self.controle);
             });
 
             $("#node-input-compare_selectA").on("change", function(e) {

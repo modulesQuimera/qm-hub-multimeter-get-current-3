@@ -1,6 +1,6 @@
 {
   "name": "qm-multimeter-get-current-3",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "multimeter get-current-3 module - Node-Red",
   "main": "get-current-3.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/modulesQuimera/qm-hub-multimeter-get-current-3.git"
+    "url": "git+https://github.com/modulesQuimera/qm-multimeter-get-current-3.git"
   },
   "keywords": ["quimera", "hub", "JIG"],
   "author": "HUB-LSE",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/modulesQuimera/qm-hub-multimeter-get-current-3/issues"
+    "url": "https://github.com/modulesQuimera/qm-multimeter-get-current-3/issues"
   },
-  "homepage": "https://github.com/modulesQuimera/qm-hub-multimeter-get-current-3#readme",
+  "homepage": "https://github.com/modulesQuimera/qm-multimeter-get-current-3#readme",
   "node-red": {
     "nodes": {
      "get-current-3": "get-current-3.js"
